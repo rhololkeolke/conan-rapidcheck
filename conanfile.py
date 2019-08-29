@@ -6,7 +6,7 @@ from conans import CMake, ConanFile, tools
 
 class RapidCheck(ConanFile):
     name = "rapidcheck"
-    version = "20190802"
+    version = "20190829"
     description = "QuickCheck clone for C++ with the goal of being simple to use with as little boilerplate as possible."
     # topics can get used for searches, GitHub topics, Bintray tags etc. Add here keywords about the library
     topics = "testing"
@@ -37,6 +37,7 @@ class RapidCheck(ConanFile):
     def source(self):
         git = tools.Git(folder=self._source_subfolder)
         git.clone("https://github.com/emil-e/rapidcheck.git", branch="master")
+        git.checkout("d598a058cb275f7704f0a8b1fe31eb75b1710934")
 
     def _configure_cmake(self):
         cmake = CMake(self)
